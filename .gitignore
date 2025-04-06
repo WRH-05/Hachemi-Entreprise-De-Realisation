@@ -1,4 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Updated .gitignore to ensure safety and exclude sensitive files
+
+# Removed exclusion of admin-related files as the repository is now private
 
 # dependencies
 /node_modules/
@@ -25,3 +27,53 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE settings
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+logs
+*.log
+logs/**/*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.swp
+*.swo
+
+# Coverage
+coverage/
+
+# Miscellaneous
+Thumbs.db
+*.orig
+*.rej
+*.patch
+*.diff
+*.crt
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.csr
+*.der
+*.crt
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.csr
+*.der
