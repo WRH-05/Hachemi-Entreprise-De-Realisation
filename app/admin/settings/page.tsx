@@ -88,33 +88,6 @@ export default function SettingsPage() {
               </div>
             </CardContent>
           </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Social Media</CardTitle>
-              <CardDescription>Connect your social media accounts</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="facebook">Facebook</Label>
-                  <Input id="facebook" defaultValue="https://facebook.com/her.construction" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="instagram">Instagram</Label>
-                  <Input id="instagram" defaultValue="https://instagram.com/her.construction" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="twitter">Twitter</Label>
-                  <Input id="twitter" defaultValue="https://twitter.com/her_construction" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="linkedin">LinkedIn</Label>
-                  <Input id="linkedin" defaultValue="https://linkedin.com/company/her-construction" />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </TabsContent>
 
         <TabsContent value="appearance" className="space-y-4">

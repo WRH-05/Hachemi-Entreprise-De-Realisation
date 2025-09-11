@@ -14,7 +14,6 @@ import {
   LogOut,
   Menu,
   X,
-  Share2,
 } from "lucide-react"
 import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -39,13 +38,6 @@ const navItems = [
     title: "Media",
     href: "/admin/media",
     icon: Image,
-    subItems: [
-      {
-        title: "Social Media",
-        href: "/admin/media/social-media",
-        icon: Share2,
-      },
-    ],
   },
   {
     title: "Users",
@@ -69,16 +61,6 @@ export function AdminSidebar() {
   const [open, setOpen] = useState(false)
   // Add a new state for tracking hover
   const [isHovered, setIsHovered] = useState(false)
-  // Track expanded menu items
-  const [expandedItems, setExpandedItems] = useState<string[]>(["/admin/media"])
-
-  const toggleExpand = (href: string) => {
-    if (expandedItems.includes(href)) {
-      setExpandedItems(expandedItems.filter((item) => item !== href))
-    } else {
-      setExpandedItems([...expandedItems, href])
-    }
-  }
 
   return (
     <>
@@ -107,50 +89,14 @@ export function AdminSidebar() {
               {navItems.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href || pathname.startsWith(item.href + "/")
-                const isExpanded = expandedItems.includes(item.href)
-                const hasSubItems = item.subItems && item.subItems.length > 0
 
                 return (
-                  <div key={item.href}>
-                    <div className="flex items-center">
-                      <Link
-                        href={hasSubItems ? "#" : item.href}
-                        className="flex-1"
-                        onClick={(e) => {
-                          if (hasSubItems) {
-                            e.preventDefault()
-                            toggleExpand(item.href)
-                          } else {
-                            setOpen(false)
-                          }
-                        }}
-                      >
-                        <Button variant={isActive ? "default" : "ghost"} className="w-full justify-start">
-                          <Icon className="mr-2 h-5 w-5" />
-                          {item.title}
-                          {hasSubItems && <span className="ml-auto">{isExpanded ? "−" : "+"}</span>}
-                        </Button>
-                      </Link>
-                    </div>
-
-                    {hasSubItems && isExpanded && (
-                      <div className="ml-6 mt-2 space-y-2">
-                        {item.subItems?.map((subItem) => {
-                          const SubIcon = subItem.icon
-                          const isSubActive = pathname === subItem.href
-
-                          return (
-                            <Link key={subItem.href} href={subItem.href} onClick={() => setOpen(false)}>
-                              <Button variant={isSubActive ? "default" : "ghost"} className="w-full justify-start">
-                                <SubIcon className="mr-2 h-5 w-5" />
-                                {subItem.title}
-                              </Button>
-                            </Link>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </div>
+                  <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+                    <Button variant={isActive ? "default" : "ghost"} className="w-full justify-start">
+                      <Icon className="mr-2 h-5 w-5" />
+                      {item.title}
+                    </Button>
+                  </Link>
                 )
               })}
             </nav>
@@ -187,57 +133,23 @@ export function AdminSidebar() {
               {navItems.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href || pathname.startsWith(item.href + "/")
-                const isExpanded = expandedItems.includes(item.href)
-                const hasSubItems = item.subItems && item.subItems.length > 0
 
                 return (
-                  <div key={item.href}>
-                    <div className="flex items-center">
-                      <Link
-                        href={hasSubItems ? "#" : item.href}
-                        className="flex-1"
-                        onClick={(e) => {
-                          if (hasSubItems) {
-                            e.preventDefault()
-                            toggleExpand(item.href)
-                          }
-                        }}
+                  <Link key={item.href} href={item.href}>
+                    <Button
+                      variant={isActive ? "default" : "ghost"}
+                      className={`w-full justify-start transition-all duration-300 ${isHovered ? "" : "px-2"}`}
+                    >
+                      <Icon className="h-5 w-5 flex-shrink-0" />
+                      <span
+                        className={`ml-2 transition-opacity duration-300 ${
+                          isHovered ? "opacity-100" : "opacity-0 w-0 overflow-hidden"
+                        }`}
                       >
-                        <Button
-                          variant={isActive ? "default" : "ghost"}
-                          className={`w-full justify-start transition-all duration-300 ${isHovered ? "" : "px-2"}`}
-                        >
-                          <Icon className="h-5 w-5 flex-shrink-0" />
-                          <span
-                            className={`ml-2 transition-opacity duration-300 ${
-                              isHovered ? "opacity-100" : "opacity-0 w-0 overflow-hidden"
-                            }`}
-                          >
-                            {item.title}
-                          </span>
-                          {hasSubItems && isHovered && <span className="ml-auto">{isExpanded ? "−" : "+"}</span>}
-                        </Button>
-                      </Link>
-                    </div>
-
-                    {hasSubItems && isExpanded && isHovered && (
-                      <div className="ml-6 mt-2 space-y-2">
-                        {item.subItems?.map((subItem) => {
-                          const SubIcon = subItem.icon
-                          const isSubActive = pathname === subItem.href
-
-                          return (
-                            <Link key={subItem.href} href={subItem.href}>
-                              <Button variant={isSubActive ? "default" : "ghost"} className="w-full justify-start">
-                                <SubIcon className="mr-2 h-5 w-5" />
-                                {subItem.title}
-                              </Button>
-                            </Link>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </div>
+                        {item.title}
+                      </span>
+                    </Button>
+                  </Link>
                 )
               })}
             </nav>

@@ -63,8 +63,7 @@ const topPagesData = [
 const trafficSourcesData = [
   { source: "Direct", visitors: 2500, percentage: 45 },
   { source: "Google Search", visitors: 1800, percentage: 32 },
-  { source: "Social Media", visitors: 800, percentage: 14 },
-  { source: "Referrals", visitors: 500, percentage: 9 },
+  { source: "Referrals", visitors: 1300, percentage: 23 },
 ]
 
 const monthlyData = [
