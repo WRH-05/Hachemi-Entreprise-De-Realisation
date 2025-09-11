@@ -5,7 +5,7 @@ import { FloatingContact } from "@/components/floating-contact"
 import { ImagePreloader } from "@/components/image-preloader"
 import type React from "react"
 import { LanguageProvider } from "@/contexts/language-context"
-import { inter, omar } from "./fonts"
+import { helvetica, omar } from "./fonts"
 
 export const metadata = {
   title: "HER - Hachemi Entreprise de Réalisation",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${omar.variable} font-sans`}>
+      <body className={`${helvetica.variable} ${omar.variable} font-sans`}>
         <LanguageProvider>
           <ImagePreloader />
           <Navbar />
