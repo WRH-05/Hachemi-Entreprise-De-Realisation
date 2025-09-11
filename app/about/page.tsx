@@ -6,18 +6,21 @@ import { CheckCircle2, Building, Target, Users, Award, ArrowRight } from "lucide
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { getRandomImage } from "@/lib/utils/random-image"
+import { getRandomImage } from "@/utils/random-image"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { AnimatedSection } from "@/components/shared/animated-section"
-import { DecorativeDots } from "@/components/shared/decorative-dots"
+// Add imports for the new components
+import { AnimatedSection } from "@/components/animated-section"
+import { DecorativeDots } from "@/components/decorative-dots"
+// Add import for ScrollToTop
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 export default function AboutPage() {
   const { translations: t } = useLanguage()
   const [heroImage, setHeroImage] = useState({
-    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pexels-quang-nguyen-vinh-222549-2138126.jpg-E0U7rIaL4At3kjHoW81lyrQK9LMhE3.jpeg",
-    alt: "Construction site",
+    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/istockphoto-1783208765-612x612.jpg-0eQ246c3K3RiDl0EumEUxhajKOOPh1.jpeg",
+    alt: "White domed mosque overlooking the Mediterranean coastline with palm tree",
   })
 
   // Set a random hero image on component mount
@@ -241,7 +244,7 @@ export default function AboutPage() {
           </motion.section>
         </div>
       </div>
+      <ScrollToTop />
     </div>
   )
 }
-

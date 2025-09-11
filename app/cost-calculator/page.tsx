@@ -9,14 +9,14 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 import { calculateConstructionCost } from "@/lib/cost-calculator"
-import { CostBreakdown } from "@/components/calculator/cost-breakdown"
-import { FinancingCalculator } from "@/components/calculator/financing-calculator"
-import { ContractorRequest } from "@/components/calculator/contractor-request"
-import { Download, Calculator, Building, Loader2 } from "lucide-react"
+import { CostBreakdown } from "@/components/cost-breakdown"
+import { FinancingCalculator } from "@/components/financing-calculator"
+import { ContractorRequest } from "@/components/contractor-request"
+import { Download, Calculator, Building, ArrowRight, Loader2 } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import jsPDF from "jspdf"
 
@@ -666,29 +666,43 @@ export default function CostCalculatorPage() {
                             style: "currency",
                             currency: "DZD",
                             maximumFractionDigits: 0,
-                          }).format(calculationResult.totalCost) || "0 DZD"}
+                          }).format(calculationResult.totalCost)}
                         </h2>
-                        <p className="text-sm md:text-base text-gray-600">
-                          {t.calculator?.results.estimatedCost || "Estimated Total Cost"}
-                        </p>
+                        <p className="text-gray-500">{t.calculator?.results.totalCost || "Total Estimated Cost"}</p>
                       </div>
-                      <CostBreakdown breakdown={calculationResult.breakdown} />
-                      <Button onClick={handleDownloadPDF} disabled={isPdfLoading}>
+
+                      <CostBreakdown result={calculationResult} />
+                    </CardContent>
+                    <CardFooter className="p-4 md:p-6 flex flex-col sm:flex-row gap-3 md:gap-4 justify-between">
+                      <Button
+                        variant="outline"
+                        onClick={handleDownloadPDF}
+                        className="w-full sm:w-auto"
+                        disabled={isPdfLoading}
+                      >
                         {isPdfLoading ? (
                           <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            {t.calculator?.results.downloading || "Downloading PDF..."}
+                            Generating PDF...
                           </>
                         ) : (
                           <>
                             <Download className="mr-2 h-4 w-4" />
-                            {t.calculator?.results.downloadEstimate || "Download Estimate"}
+                            {t.calculator?.results.downloadPDF || "Download PDF Report"}
                           </>
                         )}
                       </Button>
-                    </CardContent>
+                      <Button
+                        onClick={() => setActiveTab("financing")}
+                        className="w-full sm:w-auto bg-primary hover:bg-primary/90"
+                      >
+                        {t.calculator?.results.exploreFinancing || "Explore Financing Options"}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </CardFooter>
                   </Card>
-                  <ContractorRequest />
+
+                  <ContractorRequest projectDetails={form.getValues()} estimatedCost={calculationResult.totalCost} />
                 </div>
               )}
             </TabsContent>
@@ -702,4 +716,3 @@ export default function CostCalculatorPage() {
     </div>
   )
 }
-

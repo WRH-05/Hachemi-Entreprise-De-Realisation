@@ -27,4 +27,3 @@ export async function submitContactForm(data: z.infer<typeof formSchema>) {
 
   return { success: true }
 }
-

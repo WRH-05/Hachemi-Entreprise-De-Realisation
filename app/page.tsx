@@ -1,21 +1,21 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ServiceCard } from "@/components/home/service-card"
-import { Timeline } from "@/components/home/timeline"
-import { Statistics } from "@/components/home/statistics"
-import { Testimonials } from "@/components/home/testimonials"
+import { ServiceCard } from "@/components/service-card"
+import { Timeline } from "@/components/timeline"
+import { Statistics } from "@/components/statistics"
+import { Testimonials } from "@/components/testimonials"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/language-context"
 import { useEffect, useState } from "react"
-import { getRandomImage } from "@/lib/utils/random-image"
+import { getRandomImage } from "@/utils/random-image"
 
 export default function Home() {
   const { translations: t } = useLanguage()
   const [backgroundImage, setBackgroundImage] = useState({
-    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pexels-quang-nguyen-vinh-222549-2138126.jpg-E0U7rIaL4At3kjHoW81lyrQK9LMhE3.jpeg",
-    alt: "Modern construction site with multiple cranes at sunset",
+    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/istockphoto-1221185618-612x612.jpg-xr3qR0w0plqKGkNSHFYlUp0sW8Hkll.jpeg",
+    alt: "Beautiful sunset view of Algiers with traditional white buildings and mosque minaret",
   })
 
   // Set a random background image on component mount
@@ -80,4 +80,3 @@ export default function Home() {
     </>
   )
 }
-
