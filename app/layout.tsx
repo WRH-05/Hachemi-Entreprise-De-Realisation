@@ -9,7 +9,19 @@ import { helvetica, omar } from "./fonts"
 export const metadata = {
   title: "HER - Hachemi Entreprise de Réalisation",
   description: "Professional construction, renovation, and demolition services",
-    generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/her-transparent.webp' },
+      { url: '/her-transparent.webp', sizes: '16x16', type: 'image/webp' },
+      { url: '/her-transparent.webp', sizes: '32x32', type: 'image/webp' },
+    ],
+    shortcut: '/her-transparent.webp',
+    apple: [
+      { url: '/her-transparent.webp' },
+      { url: '/her-transparent.webp', sizes: '180x180', type: 'image/webp' },
+    ],
+  },
 }
 
 export default function RootLayout({
