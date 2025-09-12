@@ -11,7 +11,6 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { usePathname } from "next/navigation"
 
 const getRoutes = (t: any) => [
-  { href: "/", label: t.nav.home },
   { href: "/about", label: t.nav.about },
   { href: "/services", label: t.nav.services },
   { href: "/cost-calculator", label: "Cost Calculator" },
