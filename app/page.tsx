@@ -14,26 +14,61 @@ import { getRandomImage } from "@/utils/random-image"
 export default function Home() {
   const { translations: t } = useLanguage()
   const [backgroundImage, setBackgroundImage] = useState({
-    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/istockphoto-1221185618-612x612.jpg-xr3qR0w0plqKGkNSHFYlUp0sW8Hkll.jpeg",
+    url: "/landing/hani-ryad-imo78jwOpT8-unsplash.jpg",
     alt: "Beautiful sunset view of Algiers with traditional white buildings and mosque minaret",
   })
+  const [nextImage, setNextImage] = useState<{ url: string; alt: string } | null>(null)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
-  // Set a random background image on component mount
+  // Set a random background image on component mount with smooth transition
   useEffect(() => {
-    setBackgroundImage(getRandomImage())
+    const randomImg = getRandomImage()
+    
+    // Only transition if it's a different image
+    if (randomImg.url !== backgroundImage.url) {
+      // Preload the next image for smoother transition
+      const img = document.createElement('img')
+      img.onload = () => {
+        setNextImage(randomImg)
+        setIsTransitioning(true)
+        
+        // After transition completes, swap the images
+        setTimeout(() => {
+          setBackgroundImage(randomImg)
+          setIsTransitioning(false)
+          setNextImage(null)
+        }, 1200) // Slightly longer for smoother effect
+      }
+      img.src = randomImg.url
+    }
   }, [])
 
   return (
     <>
       <section className="relative h-[90vh] md:h-screen flex items-center justify-center overflow-hidden">
+        {/* Base background image */}
         <Image
           src={backgroundImage.url || "/placeholder.svg"}
           alt={backgroundImage.alt}
           fill
-          className="object-cover"
+          className="object-cover transition-opacity duration-[1200ms] ease-in-out"
           priority
           quality={100}
         />
+        
+        {/* Transitioning image overlay */}
+        {nextImage && (
+          <Image
+            src={nextImage.url}
+            alt={nextImage.alt}
+            fill
+            className={`object-cover transition-opacity duration-[1200ms] ease-in-out ${
+              isTransitioning ? 'opacity-100' : 'opacity-0'
+            }`}
+            quality={100}
+          />
+        )}
+        
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative container mx-auto px-4 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6">{t.hero.title}</h1>
