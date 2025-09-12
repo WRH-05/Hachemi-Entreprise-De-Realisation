@@ -75,7 +75,7 @@ export default function Home() {
           <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">{t.hero.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild className="bg-primary hover:bg-primary/90 w-full sm:w-auto">
-              <Link href="/services">{t.hero.services}</Link>
+              <Link href="/contact">Contact Us</Link>
             </Button>
             <Button
               size="lg"

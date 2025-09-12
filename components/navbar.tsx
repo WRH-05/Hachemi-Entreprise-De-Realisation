@@ -15,7 +15,6 @@ const getRoutes = (t: any) => [
   { href: "/services", label: t.nav.services },
   { href: "/cost-calculator", label: "Cost Calculator" },
   { href: "/faq", label: t.nav.faq },
-  { href: "/contact", label: t.nav.contact },
 ]
 
 export function Navbar() {
@@ -78,7 +77,7 @@ export function Navbar() {
             ))}
             <LanguageSwitcher />
             <Button asChild>
-              <Link href="/quote">{t.nav.requestQuote}</Link>
+              <Link href="/contact">Contact Us</Link>
             </Button>
           </nav>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -109,7 +108,7 @@ export function Navbar() {
                   <LanguageSwitcher />
                 </div>
                 <Button asChild className="w-full">
-                  <Link href="/quote">{t.nav.requestQuote}</Link>
+                  <Link href="/contact">Contact Us</Link>
                 </Button>
               </div>
             </SheetContent>
