@@ -19,8 +19,12 @@ export default function PortableShaderBackground({
 }: PortableShaderBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isActive, setIsActive] = useState(false)
+  const [showShaders, setShowShaders] = useState(false)
 
   useEffect(() => {
+    // Add a small delay to show shaders after component mounts
+    const timer = setTimeout(() => setShowShaders(true), 100)
+    
     const handleMouseEnter = () => setIsActive(true)
     const handleMouseLeave = () => setIsActive(false)
 
@@ -31,6 +35,7 @@ export default function PortableShaderBackground({
     }
 
     return () => {
+      clearTimeout(timer)
       if (container) {
         container.removeEventListener("mouseenter", handleMouseEnter)
         container.removeEventListener("mouseleave", handleMouseLeave)
@@ -40,52 +45,32 @@ export default function PortableShaderBackground({
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
-      {/* SVG Filters for glass and gooey effects */}
-      <svg className="absolute inset-0 w-0 h-0 pointer-events-none">
-        <defs>
-          <filter id="glass-effect" x="-50%" y="-50%" width="200%" height="200%">
-            <feTurbulence baseFrequency="0.005" numOctaves="1" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.3" />
-            <feColorMatrix
-              type="matrix"
-              values="1 0 0 0 0.02
-                      0 1 0 0 0.02
-                      0 0 1 0 0.05
-                      0 0 0 0.9 0"
-              result="tint"
-            />
-          </filter>
-          <filter id="gooey-filter" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-              result="gooey"
-            />
-            <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
-          </filter>
-        </defs>
-      </svg>
-
       {/* Shader background layers - behind everything */}
       <div className="absolute inset-0 w-full h-full z-0">
-        {/* Fallback solid background */}
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-900/20 to-blue-900/20" />
+        {/* Always visible fallback background - make it more obvious */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-600/30 via-blue-600/30 to-indigo-600/30" />
         
-        {/* Primary animated background layer */}
-        <MeshGradient
-          className="absolute inset-0 w-full h-full"
-          colors={colors}
-          speed={speed}
-        />
+        {/* Test div to make sure the background layer is working */}
+        <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 text-xs rounded z-20">
+          Shader Background Active
+        </div>
+        
+        {/* Only show shaders if they're supported and loaded */}
+        {showShaders && (
+          <>
+            <MeshGradient
+              className="absolute inset-0 w-full h-full"
+              colors={colors}
+              speed={speed}
+            />
 
-        {/* Secondary overlay layer with reduced opacity */}
-        <MeshGradient
-          className="absolute inset-0 w-full h-full opacity-30"
-          colors={[colors[1], colors[3], colors[2], colors[0]]}
-          speed={speed * 0.5}
-        />
+            <MeshGradient
+              className="absolute inset-0 w-full h-full opacity-30"
+              colors={[colors[1], colors[3], colors[2], colors[0]]}
+              speed={speed * 0.5}
+            />
+          </>
+        )}
       </div>
 
       {/* Content layer - in front of shaders */}

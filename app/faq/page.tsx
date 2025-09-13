@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Plus } from "lucide-react"
+import PortableShaderBackground from "@/components/portable-shader-background"
 
 const faqs = [
   {
@@ -65,9 +66,9 @@ export default function FAQPage() {
   }
 
   return (
-    <div className="min-h-screen bg-secondary pt-24 pb-12">
+    <PortableShaderBackground className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4 max-w-3xl">
-        <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-8">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-3xl font-bold mb-2">Frequently Asked Questions</h1>
@@ -132,6 +133,6 @@ export default function FAQPage() {
           </Accordion>
         </div>
       </div>
-    </div>
+    </PortableShaderBackground>
   )
 }
