@@ -64,7 +64,7 @@ export function Navbar() {
                 key={route.href}
                 href={route.href}
                 className={`text-sm font-medium transition-colors relative group ${
-                  route.href === pathname ? "text-primary" : "hover:text-primary"
+                  route.href === pathname ? "text-primary" : isScrolled ? "hover:text-primary" : "text-white hover:text-gray-200"
                 }`}
               >
                 {route.label}

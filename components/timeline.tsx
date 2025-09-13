@@ -10,8 +10,8 @@ export function Timeline() {
     <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">{t.timeline.title}</h2>
-          <p className="text-base md:text-lg text-gray-600">{t.timeline.subtitle}</p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-white">{t.timeline.title}</h2>
+          <p className="text-base md:text-lg text-gray-200">{t.timeline.subtitle}</p>
         </div>
 
         <div className="relative">

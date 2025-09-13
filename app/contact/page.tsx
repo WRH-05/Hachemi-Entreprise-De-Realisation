@@ -47,8 +47,8 @@ export default function ContactPage() {
     <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Contact Us</h1>
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Ready to start your construction project? Get in touch with our team for a free consultation and quote.
           </p>
         </div>

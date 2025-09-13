@@ -21,8 +21,8 @@ export function Testimonials() {
     <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">{t.testimonials.title}</h2>
-          <p className="text-base md:text-lg text-gray-600">{t.testimonials.subtitle}</p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-white">{t.testimonials.title}</h2>
+          <p className="text-base md:text-lg text-gray-200">{t.testimonials.subtitle}</p>
         </div>
 
         <div className="relative h-[350px] md:h-[300px] max-w-3xl mx-auto">

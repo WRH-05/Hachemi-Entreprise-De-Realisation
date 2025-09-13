@@ -63,8 +63,8 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Our Services</h1>
-        <p className="text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">Our Services</h1>
+        <p className="text-lg text-center text-gray-200 mb-12 max-w-3xl mx-auto">
           Comprehensive construction solutions tailored to your needs. We bring expertise, innovation, and dedication to
           every project.
         </p>
