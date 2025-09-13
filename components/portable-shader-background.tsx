@@ -14,7 +14,7 @@ interface PortableShaderBackgroundProps {
 export default function PortableShaderBackground({
   children,
   className = "",
-  colors = ["#000000", "#8b5cf6", "#ffffff", "#1e1b4b", "#4c1d95"],
+  colors = ["#153276", "#2d4f8e", "#FEFFF9", "#4a6ba6", "#1a3a7a"],
   speed = 0.3,
 }: PortableShaderBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -48,7 +48,7 @@ export default function PortableShaderBackground({
       {/* Shader background layers - behind everything */}
       <div className="absolute inset-0 w-full h-full z-0">
         {/* Fallback gradient background */}
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-600/30 via-blue-600/30 to-indigo-600/30" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#153276]/30 via-[#2d4f8e]/20 to-[#4a6ba6]/30" />
         
         {/* Only show shaders if they're supported and loaded */}
         {showShaders && (

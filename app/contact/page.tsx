@@ -53,6 +53,7 @@ export default function ContactPage() {
           </p>
         </div>
 
+        <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-8">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
