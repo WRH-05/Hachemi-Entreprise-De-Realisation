@@ -47,11 +47,7 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              src={
-                isScrolled
-                  ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250201_182835-I5a1G28cVNVnfNTs1J9lLzJH0wql2n.webp"
-                  : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250201_182814-N2D2uUcHKRcYeSiUjA6CWcrqKZmepD.webp"
-              }
+              src="/her-white.png"
               alt="HER Logo"
               width={100}
               height={40}
