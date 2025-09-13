@@ -7,7 +7,7 @@ export function Timeline() {
   const { translations: t } = useLanguage()
 
   return (
-    <section className="py-12 md:py-20 bg-white">
+    <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">{t.timeline.title}</h2>
@@ -45,7 +45,7 @@ export function Timeline() {
                     index % 2 === 0 ? "md:text-right md:pr-8" : "md:text-left md:pl-8"
                   }`}
                 >
-                  <div className="bg-secondary p-4 md:p-6 rounded-lg shadow-lg">
+                  <div className="bg-white/95 backdrop-blur-sm p-4 md:p-6 rounded-lg shadow-lg">
                     <span className="hidden md:block text-2xl font-bold text-primary">{event.year}</span>
                     <h3 className="text-lg md:text-xl font-semibold mt-0 md:mt-2">{event.title}</h3>
                     <p className="text-gray-600 mt-2">{event.description}</p>
