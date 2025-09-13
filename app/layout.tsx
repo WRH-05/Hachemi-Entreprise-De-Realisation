@@ -12,17 +12,17 @@ export const metadata = {
   generator: 'v0.app',
   icons: {
     icon: [
-      { url: '/her-transparent.webp', sizes: '32x32', type: 'image/webp' },
-      { url: '/her-transparent.webp', sizes: '16x16', type: 'image/webp' },
-      { url: '/her-transparent.webp', sizes: '48x48', type: 'image/webp' },
-      { url: '/her-transparent.webp', sizes: '64x64', type: 'image/webp' },
-      { url: '/her-transparent.webp', sizes: '128x128', type: 'image/webp' },
+      { url: '/her-white.png', sizes: '32x32', type: 'image/png' },
+      { url: '/her-white.png', sizes: '16x16', type: 'image/png' },
+      { url: '/her-white.png', sizes: '48x48', type: 'image/png' },
+      { url: '/her-white.png', sizes: '64x64', type: 'image/png' },
+      { url: '/her-white.png', sizes: '128x128', type: 'image/png' },
     ],
-    shortcut: '/her-transparent.webp',
+    shortcut: '/her-white.png',
     apple: [
-      { url: '/her-transparent.webp', sizes: '180x180', type: 'image/webp' },
-      { url: '/her-transparent.webp', sizes: '152x152', type: 'image/webp' },
-      { url: '/her-transparent.webp', sizes: '120x120', type: 'image/webp' },
+      { url: '/her-white.png', sizes: '180x180', type: 'image/png' },
+      { url: '/her-white.png', sizes: '152x152', type: 'image/png' },
+      { url: '/her-white.png', sizes: '120x120', type: 'image/png' },
     ],
   },
 }
