@@ -10,6 +10,7 @@ import Image from "next/image"
 import { useLanguage } from "@/contexts/language-context"
 import { useEffect, useState } from "react"
 import { getRandomImage } from "@/utils/random-image"
+import PortablePulsingCircle from "@/components/portable-pulsing-circle"
 
 export default function Home() {
   const { translations: t } = useLanguage()
@@ -44,7 +45,7 @@ export default function Home() {
   }, [])
 
   return (
-    <>
+    <div className="relative">
       <section className="relative h-[90vh] md:h-screen flex items-center justify-center overflow-hidden">
         {/* Base background image */}
         <Image
@@ -112,6 +113,12 @@ export default function Home() {
       <Timeline />
       <Statistics />
       <Testimonials />
-    </>
+
+      {/* Animated Pulsing Circle - Home page only */}
+      <PortablePulsingCircle 
+        position="bottom-right"
+        size={100}
+      />
+    </div>
   )
 }
