@@ -53,9 +53,9 @@ export function Navbar() {
                   : "/her-white (1).png"
               }
               alt="HER Logo"
-              width={100}
-              height={40}
-              className="h-10 w-auto"
+              width={60}
+              height={24}
+              className="h-5 md:h-5 w-auto" // Smaller on mobile, slightly larger on desktop
             />
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
