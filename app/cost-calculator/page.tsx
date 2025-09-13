@@ -181,8 +181,8 @@ export default function CostCalculatorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-secondary pt-20 md:pt-24 pb-8 md:pb-12">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen pt-20 md:pt-24 pb-8 md:pb-12">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-6 md:mb-8">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">

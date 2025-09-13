@@ -47,13 +47,8 @@ export default function PortableShaderBackground({
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
       {/* Shader background layers - behind everything */}
       <div className="absolute inset-0 w-full h-full z-0">
-        {/* Always visible fallback background - make it more obvious */}
+        {/* Fallback gradient background */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-600/30 via-blue-600/30 to-indigo-600/30" />
-        
-        {/* Test div to make sure the background layer is working */}
-        <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 text-xs rounded z-20">
-          Shader Background Active
-        </div>
         
         {/* Only show shaders if they're supported and loaded */}
         {showShaders && (

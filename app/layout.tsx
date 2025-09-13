@@ -5,6 +5,7 @@ import { ImagePreloader } from "@/components/image-preloader"
 import type React from "react"
 import { LanguageProvider } from "@/contexts/language-context"
 import { helvetica, omar } from "./fonts"
+import SiteLayoutWithShader from "@/components/site-layout-with-shader"
 
 export const metadata = {
   title: "HER - Hachemi Entreprise de Réalisation",
@@ -36,12 +37,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${helvetica.variable} ${omar.variable} font-sans`}>
-        <LanguageProvider>
-          <ImagePreloader />
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <SiteLayoutWithShader>
+          <LanguageProvider>
+            <ImagePreloader />
+            <Navbar />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </SiteLayoutWithShader>
       </body>
     </html>
   )

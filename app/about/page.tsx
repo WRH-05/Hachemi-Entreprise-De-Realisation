@@ -71,7 +71,7 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-secondary pt-24 pb-12">
+    <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         {/* Hero Section with Animation */}
         <motion.div

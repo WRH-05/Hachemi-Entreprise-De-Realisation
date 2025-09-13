@@ -61,7 +61,7 @@ export default function ServicesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-secondary pt-24 pb-12">
+    <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Our Services</h1>
         <p className="text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto">
@@ -73,7 +73,7 @@ export default function ServicesPage() {
           {services.map((service, index) => {
             const Icon = service.icon
             return (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                   <Icon className="h-6 w-6 text-primary" />
                 </div>
