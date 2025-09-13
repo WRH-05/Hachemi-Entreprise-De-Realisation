@@ -64,7 +64,7 @@ export function Navbar() {
                 key={route.href}
                 href={route.href}
                 className={`text-sm font-medium transition-colors relative group ${
-                  route.href === pathname ? "text-primary" : "hover:text-primary"
+                  route.href === pathname ? "text-primary" : isScrolled ? "hover:text-primary" : "text-white hover:text-gray-200"
                 }`}
               >
                 {route.label}
@@ -75,7 +75,7 @@ export function Navbar() {
                 />
               </Link>
             ))}
-            <LanguageSwitcher />
+            <LanguageSwitcher isScrolled={isScrolled} />
             <Button asChild>
               <Link href="/contact">Contact Us</Link>
             </Button>
@@ -105,7 +105,7 @@ export function Navbar() {
                   </Link>
                 ))}
                 <div className="py-4">
-                  <LanguageSwitcher />
+                  <LanguageSwitcher isScrolled={isScrolled} />
                 </div>
                 <Button asChild className="w-full">
                   <Link href="/contact">Contact Us</Link>

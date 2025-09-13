@@ -5,7 +5,11 @@ import { useLanguage } from "@/contexts/language-context"
 import { Globe } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
-export function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  isScrolled?: boolean
+}
+
+export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps) {
   const { language, setLanguage } = useLanguage()
 
   const languages = [
@@ -20,7 +24,9 @@ export function LanguageSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="flex items-center gap-2 hover:bg-secondary/80"
+          className={`flex items-center gap-2 hover:bg-secondary/80 transition-colors ${
+            isScrolled ? "hover:text-primary" : "text-white hover:text-gray-200"
+          }`}
           aria-label="Select language"
         >
           <Globe className="h-4 w-4" />
